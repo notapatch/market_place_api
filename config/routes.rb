@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # API definition
   namespace :api, defaults: { format: :json } do
-    # add resources here under controllers
-    # namespaced with api
+    namespace :v1 do
+      # add resources here under controllers
+      # namespaced with api
+    end
   end
 end
