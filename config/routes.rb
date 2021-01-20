@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       # add resources here under controllers
       # namespaced with api
-      resources :users, only: [:show]
+      resources :users, only: %i[show create]
     end
   end
 end
