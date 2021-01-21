@@ -22,3 +22,5 @@ User.delete_all
     puts "Created a brand new product #{product.title}"
   end
 end
+
+UserSerializer.new( User.first ).serializable_hash
