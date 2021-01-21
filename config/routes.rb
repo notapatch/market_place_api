@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       # namespaced with api
       resources :users, only: %i[show create update destroy]
       resources :tokens, only: %i[create]
-      resources :products, only: %i[index show]
+      resources :products, only: %i[index show create update destroy]
     end
   end
 end
