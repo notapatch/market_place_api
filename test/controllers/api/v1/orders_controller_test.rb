@@ -19,6 +19,11 @@ class Api::V1::OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_equal @order.user.orders.count, json_response["data"].count
   end
 
+  test "should forbid show order for unlogged" do
+    get api_v1_order_url(@order), as: :json
+    assert_response :forbidden
+  end
+
   test "should show order" do
     get api_v1_order_url(@order), headers: { Authorization: JsonWebToken.encode(user_id: @order.user_id ) },
                                   as: :json
