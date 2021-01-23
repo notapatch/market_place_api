@@ -10,4 +10,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def assert_json_response_is_paginated json_response
+    %i[first last prev next].each do |link|
+      assert_not_nil json_response.dig(:links, link)
+    end
+  end
 end
